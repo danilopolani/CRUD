@@ -226,7 +226,7 @@ function tree_element($entry, $key, $all_entries, $crud)
 <script src="{{ asset('packages/backpack/crud/js/crud.js') }}" type="text/javascript" ></script>
 <script src="{{ asset('packages/backpack/crud/js/reorder.js') }}" type="text/javascript" ></script>
 <script src="{{ asset('packages/jquery-ui-dist/jquery-ui.min.js') }}" type="text/javascript" ></script>
-<script src="{{ asset('packages/nestedSortable/jquery.mjs.nestedSortable2.js') }}" type="text/javascript" ></script>
+<script src="{{ asset('packages/nestedSortable/jquery.mjs.nestedSortable2.min.js') }}" type="text/javascript" ></script>
 
 <script type="text/javascript">
     jQuery(document).ready(function($) {

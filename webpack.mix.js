@@ -27,8 +27,8 @@ mix.sass('src/resources/assets/scss/bundle.scss', 'src/public/packages/backpack/
       processCssUrls: false
     });
 
-// copy the Backstrap CSS
-mix.copy('node_modules/@digitallyhappy/backstrap/dist/css', 'src/public/packages/@digitallyhappy/backstrap/css');
+// Do not copy the Backstrap CSS (already included in the bundle)
+// mix.copy('node_modules/@digitallyhappy/backstrap/dist/css', 'src/public/packages/@digitallyhappy/backstrap/css');
 
 // copy fonts and other assets
 mix.copy('node_modules/line-awesome/dist/line-awesome', 'src/public/packages/line-awesome')
@@ -38,33 +38,87 @@ mix.copy('node_modules/line-awesome/dist/line-awesome', 'src/public/packages/lin
 
 
 // copy CRUD filters JS into packages
-mix.copy('node_modules/bootstrap-datepicker/dist', 'src/public/packages/bootstrap-datepicker/dist')
-	.copy('node_modules/moment/min', 'src/public/packages/moment/min')
-	.copy('node_modules/select2/dist', 'src/public/packages/select2/dist')
-	.copy('node_modules/jquery-colorbox', 'src/public/packages/jquery-colorbox')
-	.copy('node_modules/jquery-ui-dist', 'src/public/packages/jquery-ui-dist')
-	.copy('node_modules/select2-bootstrap-theme/dist', 'src/public/packages/select2-bootstrap-theme/dist')
-	.copy('node_modules/bootstrap-daterangepicker/daterangepicker.css', 'src/public/packages/bootstrap-daterangepicker/daterangepicker.css')
-	.copy('node_modules/bootstrap-daterangepicker/daterangepicker.js', 'src/public/packages/bootstrap-daterangepicker/daterangepicker.js')
-	.copy('node_modules/pc-bootstrap4-datetimepicker/build', 'src/public/packages/pc-bootstrap4-datetimepicker/build')
-	.copy('node_modules/cropperjs/dist', 'src/public/packages/cropperjs/dist')
-	.copy('node_modules/jquery-cropper/dist', 'src/public/packages/jquery-cropper/dist')
-	.copy('node_modules/ckeditor', 'src/public/packages/ckeditor')
-	.copy('node_modules/bootstrap-colorpicker/dist', 'src/public/packages/bootstrap-colorpicker/dist')
-	.copy('node_modules/bootstrap-iconpicker/bootstrap-iconpicker', 'src/public/packages/bootstrap-iconpicker/bootstrap-iconpicker')
-	.copy('node_modules/bootstrap-iconpicker/icon-fonts', 'src/public/packages/bootstrap-iconpicker/icon-fonts')
-	.copy('node_modules/simplemde/dist', 'src/public/packages/simplemde/dist')
-	.copy('node_modules/easymde/dist', 'src/public/packages/easymde/dist')
-	.copy('node_modules/summernote/dist', 'src/public/packages/summernote/dist')
-	.copy('node_modules/tinymce', 'src/public/packages/tinymce')
-	.copy('node_modules/nestedSortable', 'src/public/packages/nestedSortable')
-	.copy('node_modules/datatables.net', 'src/public/packages/datatables.net')
+mix
+    .copy('node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css', 'src/public/packages/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css')
+    .copy('node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js', 'src/public/packages/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')
+    .copy('node_modules/bootstrap-datepicker/dist/locales', 'src/public/packages/bootstrap-datepicker/dist/locales')
+
+	.copy('node_modules/moment/min/moment.min.js', 'src/public/packages/moment/min/moment.min.js')
+    .copy('node_modules/moment/min/locales.min.js', 'src/public/packages/moment/min/locales.min.js')
+
+    .copy('node_modules/select2/dist/css/select2.min.css', 'src/public/packages/select2/dist/css/select2.min.css')
+    .copy('node_modules/select2/dist/js/select2.full.min.js', 'src/public/packages/select2/dist/js/select2.full.min.js')
+    .copy('node_modules/select2/dist/js/i18n', 'src/public/packages/select2/dist/js/i18n')
+
+    .copy('node_modules/jquery-colorbox/example2/colorbox.css', 'src/public/packages/jquery-colorbox/jquery.colorbox.css')
+    .copy('node_modules/jquery-colorbox/jquery.colorbox-min.js', 'src/public/packages/jquery-colorbox/jquery.colorbox-min.js')
+
+    .copy('node_modules/jquery-ui-dist/jquery-ui.min.js', 'src/public/packages/jquery-ui-dist/jquery-ui.min.js')
+
+    .copy('node_modules/select2-bootstrap-theme/dist/select2-bootstrap.min.css', 'src/public/packages/select2-bootstrap-theme/dist/select2-bootstrap.min.css')
+
+	.minify('node_modules/bootstrap-daterangepicker/daterangepicker.css', 'src/public/packages/bootstrap-daterangepicker/daterangepicker.css')
+    .minify('node_modules/bootstrap-daterangepicker/daterangepicker.js', 'src/public/packages/bootstrap-daterangepicker/daterangepicker.js')
+
+    .copy('node_modules/pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.min.css', 'src/public/packages/pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.min.css')
+    .copy('node_modules/pc-bootstrap4-datetimepicker/build/js/bootstrap-datetimepicker.min.js', 'src/public/packages/pc-bootstrap4-datetimepicker/build/js/bootstrap-datetimepicker.min.js')
+
+	.copy('node_modules/cropperjs/dist/cropper.min.css', 'src/public/packages/cropperjs/dist/cropper.min.css')
+	.copy('node_modules/cropperjs/dist/cropper.min.js', 'src/public/packages/cropperjs/dist/cropper.min.js')
+
+    .copy('node_modules/jquery-cropper/dist/jquery-cropper.min.js', 'src/public/packages/jquery-cropper/dist/jquery-cropper.min.js')
+
+    // !TODO review plugins, skin and langs to optimize it
+    .copy('node_modules/ckeditor', 'src/public/packages/ckeditor')
+
+    .copy('node_modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css', 'src/public/packages/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css')
+    .copy('node_modules/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js', 'src/public/packages/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js')
+
+    .copy('node_modules/bootstrap-iconpicker/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css', 'src/public/packages/bootstrap-iconpicker/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css')
+    .copy('node_modules/bootstrap-iconpicker/bootstrap-iconpicker/js/bootstrap-iconpicker.bundle.min.js', 'src/public/packages/bootstrap-iconpicker/bootstrap-iconpicker/js/bootstrap-iconpicker.bundle.min.js')
+
+	.copy('node_modules/bootstrap-iconpicker/icon-fonts/elusive-icons-2.0.0/css/elusive-icons.min.css', 'src/public/packages/bootstrap-iconpicker/icon-fonts/elusive-icons-2.0.0/css/elusive-icons.min.css')
+	.copy('node_modules/bootstrap-iconpicker/icon-fonts/elusive-icons-2.0.0/fonts', 'src/public/packages/bootstrap-iconpicker/icon-fonts/elusive-icons-2.0.0/fonts')
+	.copy('node_modules/bootstrap-iconpicker/icon-fonts/font-awesome-5.12.0-1/css/all.min.css', 'src/public/packages/bootstrap-iconpicker/icon-fonts/font-awesome-5.12.0-1/css/all.min.css')
+	.copy('node_modules/bootstrap-iconpicker/icon-fonts/font-awesome-5.12.0-1/webfonts', 'src/public/packages/bootstrap-iconpicker/icon-fonts/font-awesome-5.12.0-1/webfonts')
+	.copy('node_modules/bootstrap-iconpicker/icon-fonts/ionicons-1.5.2/css/ionicons.min.css', 'src/public/packages/bootstrap-iconpicker/icon-fonts/ionicons-1.5.2/css/ionicons.min.css')
+	.copy('node_modules/bootstrap-iconpicker/icon-fonts/ionicons-1.5.2/fonts', 'src/public/packages/bootstrap-iconpicker/icon-fonts/ionicons-1.5.2/fonts')
+	.copy('node_modules/bootstrap-iconpicker/icon-fonts/map-icons-2.1.0/css/map-icons.min.css', 'src/public/packages/bootstrap-iconpicker/icon-fonts/map-icons-2.1.0/css/map-icons.min.css')
+	.copy('node_modules/bootstrap-iconpicker/icon-fonts/map-icons-2.1.0/fonts', 'src/public/packages/bootstrap-iconpicker/icon-fonts/map-icons-2.1.0/fonts')
+	.copy('node_modules/bootstrap-iconpicker/icon-fonts/material-design-1.1.1/css/material-design-iconic-font.min.css', 'src/public/packages/bootstrap-iconpicker/icon-fonts/material-design-1.1.1/css/material-design-iconic-font.min.css')
+	.copy('node_modules/bootstrap-iconpicker/icon-fonts/material-design-1.1.1/fonts', 'src/public/packages/bootstrap-iconpicker/icon-fonts/material-design-1.1.1/fonts')
+	.copy('node_modules/bootstrap-iconpicker/icon-fonts/octicons-2.1.2/css/octicons.min.css', 'src/public/packages/bootstrap-iconpicker/icon-fonts/octicons-2.1.2/css/octicons.min.css')
+	.copy('node_modules/bootstrap-iconpicker/icon-fonts/octicons-2.1.2/fonts', 'src/public/packages/bootstrap-iconpicker/icon-fonts/octicons-2.1.2/fonts')
+	.copy('node_modules/bootstrap-iconpicker/icon-fonts/typicons-2.0.6/css/typicons.min.css', 'src/public/packages/bootstrap-iconpicker/icon-fonts/typicons-2.0.6/css/typicons.min.css')
+	.copy('node_modules/bootstrap-iconpicker/icon-fonts/typicons-2.0.6/fonts', 'src/public/packages/bootstrap-iconpicker/icon-fonts/typicons-2.0.6/fonts')
+	.copy('node_modules/bootstrap-iconpicker/icon-fonts/weather-icons-1.2.0/css/weather-icons.min.css', 'src/public/packages/bootstrap-iconpicker/icon-fonts/weather-icons-1.2.0/css/weather-icons.min.css')
+	.copy('node_modules/bootstrap-iconpicker/icon-fonts/weather-icons-1.2.0/fonts', 'src/public/packages/bootstrap-iconpicker/icon-fonts/weather-icons-1.2.0/fonts')
+
+    .copy('node_modules/simplemde/dist', 'src/public/packages/simplemde/dist')
+
+    .copy('node_modules/easymde/dist', 'src/public/packages/easymde/dist')
+
+    .copy('node_modules/summernote/dist/summernote-bs4.min.css', 'src/public/packages/summernote/dist/summernote-bs4.min.css')
+    .copy('node_modules/summernote/dist/summernote-bs4.min.js', 'src/public/packages/summernote/dist/summernote-bs4.min.js')
+    .copy('node_modules/summernote/dist/font', 'src/public/packages/summernote/dist/font')
+    .copy('node_modules/summernote/dist/plugin', 'src/public/packages/summernote/dist/plugin')
+    // Lang is not being used currently
+    // .copy('node_modules/summernote/dist/lang', 'src/public/packages/summernote/dist/lang')
+
+    // !TODO review plugins, skin and langs to optimize it
+    .copy('node_modules/tinymce', 'src/public/packages/tinymce')
+
+    .minify('node_modules/nestedSortable/jquery.mjs.nestedSortable2.js', 'src/public/packages/nestedSortable/jquery.mjs.nestedSortable2.min.js')
+
+    // !TODO review everything
+    .copy('node_modules/datatables.net', 'src/public/packages/datatables.net')
 	.copy('node_modules/datatables.net-bs4', 'src/public/packages/datatables.net-bs4')
 	.copy('node_modules/datatables.net-fixedheader', 'src/public/packages/datatables.net-fixedheader')
 	.copy('node_modules/datatables.net-fixedheader-bs4', 'src/public/packages/datatables.net-fixedheader-bs4')
 	.copy('node_modules/datatables.net-responsive', 'src/public/packages/datatables.net-responsive')
 	.copy('node_modules/datatables.net-responsive-bs4', 'src/public/packages/datatables.net-responsive-bs4')
-	.copy('node_modules/places.js/dist', 'src/public/packages/places.js/dist');
+
+    .copy('node_modules/places.js/dist/cdn/places.min.js', 'src/public/packages/places.js/dist/cdn/places.min.js');
 
 // FOR MAINTAINERS
 // copy asset files from Base's public folder the main app's public folder
