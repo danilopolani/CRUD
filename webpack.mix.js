@@ -78,7 +78,7 @@ mix
     .copy('node_modules/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js', 'src/public/packages/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js')
 
     .copy('node_modules/bootstrap-iconpicker/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css', 'src/public/packages/bootstrap-iconpicker/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css')
-    .copy('node_modules/bootstrap-iconpicker/bootstrap-iconpicker/js/bootstrap-iconpicker.bundle.min.js', 'src/public/packages/bootstrap-iconpicker/bootstrap-iconpicker/js/bootstrap-iconpicker.bundle.min.js')
+    .copy('node_modules/bootstrap-iconpicker/bootstrap-iconpicker/js/bootstrap-iconpicker.min.js', 'src/public/packages/bootstrap-iconpicker/bootstrap-iconpicker/js/bootstrap-iconpicker.min.js')
 
 	.copy('node_modules/bootstrap-iconpicker/icon-fonts/elusive-icons-2.0.0/css/elusive-icons.min.css', 'src/public/packages/bootstrap-iconpicker/icon-fonts/elusive-icons-2.0.0/css/elusive-icons.min.css')
 	.copy('node_modules/bootstrap-iconpicker/icon-fonts/elusive-icons-2.0.0/fonts', 'src/public/packages/bootstrap-iconpicker/icon-fonts/elusive-icons-2.0.0/fonts')
