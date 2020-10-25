@@ -27,14 +27,17 @@ mix.sass('src/resources/assets/scss/bundle.scss', 'src/public/packages/backpack/
       processCssUrls: false
     });
 
-// Do not copy the Backstrap CSS (already included in the bundle)
-// mix.copy('node_modules/@digitallyhappy/backstrap/dist/css', 'src/public/packages/@digitallyhappy/backstrap/css');
+// copy the Backstrap CSS
+mix.copy('node_modules/@digitallyhappy/backstrap/dist/css/style.min.css', 'src/public/packages/@digitallyhappy/backstrap/css/style.min.css');
+mix.copy('node_modules/@digitallyhappy/backstrap/dist/css/overlay.css', 'src/public/packages/@digitallyhappy/backstrap/css/overlay.css');
 
 // copy fonts and other assets
-mix.copy('node_modules/line-awesome/dist/line-awesome', 'src/public/packages/line-awesome')
-	.copy('node_modules/source-sans-pro', 'src/public/packages/source-sans-pro')
+mix.copy('node_modules/line-awesome/dist/line-awesome/css/line-awesome.min.css', 'src/public/packages/line-awesome/css/line-awesome.min.css')
+    .copy('node_modules/line-awesome/dist/line-awesome/fonts', 'src/public/packages/line-awesome/fonts')
+    .copy('node_modules/source-sans-pro', 'src/public/packages/source-sans-pro')
 	.copy('node_modules/animate.css/animate.min.css', 'src/public/packages/animate.css/animate.min.css')
-	.copy('node_modules/noty/lib', 'src/public/packages/noty');
+	.minify('node_modules/noty/lib/noty.css', 'src/public/packages/noty/noty.min.css')
+	.copy('node_modules/noty/lib/noty.min.js', 'src/public/packages/noty/noty.min.js');
 
 
 // copy CRUD filters JS into packages
@@ -105,18 +108,19 @@ mix
     // Lang is not being used currently
     // .copy('node_modules/summernote/dist/lang', 'src/public/packages/summernote/dist/lang')
 
-    // !TODO review plugins, skin and langs to optimize it
     .copy('node_modules/tinymce', 'src/public/packages/tinymce')
 
     .minify('node_modules/nestedSortable/jquery.mjs.nestedSortable2.js', 'src/public/packages/nestedSortable/jquery.mjs.nestedSortable2.min.js')
 
-    // !TODO review everything
-    .copy('node_modules/datatables.net', 'src/public/packages/datatables.net')
-	.copy('node_modules/datatables.net-bs4', 'src/public/packages/datatables.net-bs4')
-	.copy('node_modules/datatables.net-fixedheader', 'src/public/packages/datatables.net-fixedheader')
-	.copy('node_modules/datatables.net-fixedheader-bs4', 'src/public/packages/datatables.net-fixedheader-bs4')
-	.copy('node_modules/datatables.net-responsive', 'src/public/packages/datatables.net-responsive')
-	.copy('node_modules/datatables.net-responsive-bs4', 'src/public/packages/datatables.net-responsive-bs4')
+    .copy('node_modules/datatables.net/js/jquery.dataTables.min.js', 'src/public/packages/datatables.net/js/jquery.dataTables.min.js')
+	.copy('node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css', 'src/public/packages/datatables.net-bs4/css/dataTables.bootstrap4.min.css')
+	.copy('node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js', 'src/public/packages/datatables.net-bs4/js/dataTables.bootstrap4.min.js')
+	.copy('node_modules/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js', 'src/public/packages/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js')
+	.copy('node_modules/datatables.net-fixedheader-bs4/css/fixedHeader.bootstrap4.min.css', 'src/public/packages/datatables.net-fixedheader-bs4/css/fixedHeader.bootstrap4.min.css')
+	.copy('node_modules/datatables.net-fixedheader-bs4/js/fixedHeader.bootstrap4.min.js', 'src/public/packages/datatables.net-fixedheader-bs4/js/fixedHeader.bootstrap4.min.js')
+	.copy('node_modules/datatables.net-responsive/js/dataTables.responsive.min.js', 'src/public/packages/datatables.net-responsive/js/dataTables.responsive.min.js')
+	.copy('node_modules/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css', 'src/public/packages/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')
+	.copy('node_modules/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js', 'src/public/packages/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')
 
     .copy('node_modules/places.js/dist/cdn/places.min.js', 'src/public/packages/places.js/dist/cdn/places.min.js');
 
