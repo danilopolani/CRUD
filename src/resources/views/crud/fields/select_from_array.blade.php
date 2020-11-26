@@ -14,6 +14,12 @@
 
         @if (count($field['options']))
             @foreach ($field['options'] as $key => $value)
+                @if (isset($field['values_as_keys']) && $field['values_as_keys'] === true)
+                    @php
+                        $key = $value
+                    @endphp
+                @endif
+
                 @if((old(square_brackets_to_dots($field['name'])) && (
                         $key == old(square_brackets_to_dots($field['name'])) ||
                         (is_array(old(square_brackets_to_dots($field['name']))) &&
